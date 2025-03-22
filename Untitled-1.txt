@@ -1,0 +1,15 @@
+    "react-native-file-system": "github:lyswhut/react-native-file-system#2a37b90dbb8d37c5180777d0bf0d4f160812b0c1",
+    "react-native-local-media-metadata": "github:lyswhut/react-native-local-media-metadata#5eac1b6c70e934a1ad7b800b3ab7122f1075f704",
+
+    "react-native-track-player": "github:lyswhut/react-native-track-player#57eeeba57e28702fa931d4aeb753da225b6fcf6c",
+
+WayChungChen (WayChungChen)
+npm i github:WayChungChen/react-native-file-system
+
+npm i github:WayChungChen/react-native-local-media-metadata --verbose
+
+npm i github:WayChungChen/react-native-track-player --verbose
+
+
+npm i github:WayChungChen/react-native-background-timer --verbose
+

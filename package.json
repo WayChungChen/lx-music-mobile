@@ -1,7 +1,7 @@
 {
   "name": "lx-music-mobile",
-  "version": "1.7.0-beta.6",
-  "versionCode": 69,
+  "version": "1.7.0-beta.8",
+  "versionCode": 72,
   "private": true,
   "scripts": {
     "dev": "react-native run-android --active-arch-only",
@@ -54,17 +54,17 @@
     "pako": "^2.1.0",
     "react": "18.2.0",
     "react-native": "0.73.11",
-    "react-native-background-timer": "github:lyswhut/react-native-background-timer#55ecaa80880e9cec1fff81f3ce10e6250ab3c40c",
+    "react-native-background-timer": "github:WayChungChen/react-native-background-timer",
     "react-native-exception-handler": "^2.10.10",
     "react-native-fast-image": "^8.6.3",
-    "react-native-file-system": "github:lyswhut/react-native-file-system#2a37b90dbb8d37c5180777d0bf0d4f160812b0c1",
+    "react-native-file-system": "github:WayChungChen/react-native-file-system",
     "react-native-fs": "^2.20.0",
-    "react-native-local-media-metadata": "github:lyswhut/react-native-local-media-metadata#5eac1b6c70e934a1ad7b800b3ab7122f1075f704",
+    "react-native-local-media-metadata": "github:WayChungChen/react-native-local-media-metadata",
     "react-native-navigation": "7.39.2",
     "react-native-pager-view": "6.6.1",
     "react-native-quick-base64": "^2.1.2",
     "react-native-quick-md5": "^3.0.6",
-    "react-native-track-player": "github:lyswhut/react-native-track-player#57eeeba57e28702fa931d4aeb753da225b6fcf6c",
+    "react-native-track-player": "github:WayChungChen/react-native-track-player#7d16e15dfeb7df99b6838daeb09103ede3d24f5f",
     "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {

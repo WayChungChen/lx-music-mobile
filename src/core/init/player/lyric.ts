@@ -2,16 +2,24 @@ import { init as initLyricPlayer, toggleTranslation, toggleRoma, play, pause, st
 import { updateSetting } from '@/core/common'
 import { onDesktopLyricPositionChange, showDesktopLyric, onLyricLinePlay, showRemoteLyric } from '@/core/desktopLyric'
 import playerState from '@/store/player/state'
-import { updateNowPlayingTitles } from '@/plugins/player/utils'
+import { updateNowPlayingTitles, updateNowPlayingUcarInfo } from '@/plugins/player/utils'
 import { setLastLyric } from '@/core/player/playInfo'
 import { state } from '@/plugins/player/playList'
+import settingState from '@/store/setting/state'
+
 
 const updateRemoteLyric = async(lrc?: string) => {
   setLastLyric(lrc)
+  // console.log('歌曲信息：', playerState.musicInfo)
   if (lrc == null) {
     void updateNowPlayingTitles((state.prevDuration || 0) * 1000, playerState.musicInfo.name, playerState.musicInfo.singer ?? '', playerState.musicInfo.album ?? '')
   } else {
-    void updateNowPlayingTitles((state.prevDuration || 0) * 1000, lrc, `${playerState.musicInfo.name}${playerState.musicInfo.singer ? ` - ${playerState.musicInfo.singer}` : ''}`, playerState.musicInfo.album ?? '')
+    const isShowUcarLyric = settingState.setting['player.isShowUcarLyric']
+    if (isShowUcarLyric) {
+      updateNowPlayingUcarInfo((state.prevDuration || 0) * 1000, playerState.musicInfo.name, `${playerState.musicInfo.singer ? `${playerState.musicInfo.singer}` : ''}`, playerState.musicInfo.album ?? '', lrc)
+    } else {
+      updateNowPlayingTitles((state.prevDuration || 0) * 1000, lrc, `${playerState.musicInfo.name}${playerState.musicInfo.singer ? ` - ${playerState.musicInfo.singer}` : ''}`, playerState.musicInfo.album ?? '')
+    }
   }
 }
 
@@ -33,6 +41,11 @@ export default async(setting: LX.AppSetting) => {
       updateSetting({ 'player.isShowBluetoothLyric': false })
     })
   }
+  if (setting['player.isShowUcarLyric']) {
+    showRemoteLyric(true).catch(() => {
+      updateSetting({ 'player.isShowUcarLyric': false })
+    })
+  }
   onDesktopLyricPositionChange(position => {
     updateSetting({
       'desktopLyric.position.x': position.x,
@@ -40,6 +53,7 @@ export default async(setting: LX.AppSetting) => {
     })
   })
   onLyricLinePlay(({ text, extendedLyrics }) => {
+    console.log('onLyricLinePlay', text)
     if (!text && !state.isPlaying) {
       void updateRemoteLyric()
     } else {

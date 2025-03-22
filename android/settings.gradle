@@ -1,4 +1,15 @@
+pluginManagement {
+    repositories {
+        
+        // 添加镜像仓库
+        maven {
+            url "https://maven.aliyun.com/repository/gradle-plugin"
+        }
+    }
+}
+
 rootProject.name = 'cn.toside.music.mobile'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
+

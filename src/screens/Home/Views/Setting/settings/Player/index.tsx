@@ -13,6 +13,7 @@ import IsShowLyricRoma from './IsShowLyricRoma'
 import IsS2T from './IsS2T'
 import MaxCache from './MaxCache'
 import { useI18n } from '@/lang'
+import IsShowUcarLyric from './IsShowUcarLyric'
 
 
 export default memo(() => {
@@ -25,6 +26,7 @@ export default memo(() => {
       <IsHandleAudioFocus />
       <IsEnableAudioOffload />
       <IsShowBluetoothLyric />
+      <IsShowUcarLyric />
       <IsShowNotificationImage />
       <IsShowLyricTranslation />
       <IsShowLyricRoma />

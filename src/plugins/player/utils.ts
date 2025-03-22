@@ -173,6 +173,11 @@ export const updateNowPlayingTitles = async(duration: number, title: string, art
   return TrackPlayer.updateNowPlayingTitles(duration, title, artist, album)
 }
 
+export const updateNowPlayingUcarInfo = async(duration: number, title: string, artist: string, album: string, lyric?: string) => {
+  console.log('set playing ucar info', duration, title, artist, album, lyric)
+  return TrackPlayer.updateNowPlayingUcarInfo(duration, title, artist, album, lyric)
+}
+
 export const resetPlay = async() => Promise.all([setPause(), setCurrentTime(0)])
 
 export const isCached = async(url: string) => TrackPlayer.isCached(url)

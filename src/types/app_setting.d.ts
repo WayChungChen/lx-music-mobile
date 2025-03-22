@@ -192,6 +192,11 @@ declare global {
       'player.isShowBluetoothLyric': boolean
 
       /**
+       * 是否启用Carwith&JovinCar歌词
+       */
+      'player.isShowUcarLyric': boolean
+
+      /**
        * 播放详情页-是否缩放当前播放的歌词行
        */
       // 'playDetail.isZoomActiveLrc': boolean

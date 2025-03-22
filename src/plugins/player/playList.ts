@@ -1,4 +1,4 @@
-import TrackPlayer, { State } from 'react-native-track-player'
+import TrackPlayer, { NowPlayingMetadata, State } from 'react-native-track-player'
 import BackgroundTimer from 'react-native-background-timer'
 import { defaultUrl } from '@/config'
 // import { action as playerAction } from '@/store/modules/player'
@@ -177,8 +177,8 @@ export const playMusic = (musicInfo: LX.Player.PlayMusic, url: string, time: num
 // let duration = 0
 let prevArtwork: string | undefined
 const updateMetaInfo = async(mInfo: LX.Player.MusicInfo, lyric?: string) => {
-  console.log('updateMetaInfo', lyric)
   const isShowNotificationImage = settingState.setting['player.isShowNotificationImage']
+  const isShowUcarLyric = settingState.setting['player.isShowUcarLyric']
   // const mInfo = formatMusicInfo(musicInfo)
   // console.log('+++++updateMusicPic+++++', track.artwork, track.duration)
 
@@ -200,16 +200,28 @@ const updateMetaInfo = async(mInfo: LX.Player.MusicInfo, lyric?: string) => {
     name = mInfo.name ?? 'Unknow'
     singer = mInfo.singer ?? 'Unknow'
   } else {
-    name = lyric
-    singer = `${mInfo.name}${mInfo.singer ? ` - ${mInfo.singer}` : ''}`
+    if (isShowUcarLyric) {
+      name = mInfo.name;
+      singer = mInfo.singer;
+    } else {
+      name = lyric
+      singer = `${mInfo.name}${mInfo.singer ? ` - ${mInfo.singer}` : ''}`
+    }
   }
-  await TrackPlayer.updateNowPlayingMetadata({
+
+  const metadata: NowPlayingMetadata = {
     title: name,
     artist: singer,
     album: mInfo.album ?? undefined,
     artwork,
-    duration: state.prevDuration || 0,
-  }, state.isPlaying)
+    duration: state.prevDuration || 0
+  }
+
+  if (isShowUcarLyric) {
+    metadata['lrc'] = mInfo.lrc;
+  }
+
+  await TrackPlayer.updateNowPlayingMetadata(metadata, state.isPlaying)
 }
 
 
