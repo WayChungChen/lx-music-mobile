@@ -16,45 +16,50 @@
 
 ## 说明
 
-支持的平台：
+所用技术栈：
 
-- Android
+- React Native
+- Redux
 
-*注：由于没有相关开发环境及证书，所以 **没有计划支持 iOS**。*<br>
+已支持的平台：
+
+- Android 5 及以上
+
+***注：目前没有计划支持 iOS 和 HarmonyOS NEXT**。*<br>
 *桌面版项目地址：<https://github.com/lyswhut/lx-music-desktop>*
 
-软件变化请查看 [更新日志](https://github.com/lyswhut/lx-music-mobile/blob/master/CHANGELOG.md)。
+软件变化请查看[更新日志](https://github.com/lyswhut/lx-music-mobile/blob/master/CHANGELOG.md)。
 
 软件下载请查看 [GitHub Releases](https://github.com/lyswhut/lx-music-mobile/releases)。
 
-使用常见问题请参阅 [常见问题](https://lyswhut.github.io/lx-music-doc/mobile/faq)。
+使用常见问题请参阅[移动版常见问题](https://lyswhut.github.io/lx-music-doc/mobile/faq)。
 
-目前本项目的原始发布地址只有 [**GitHub Releases**](https://github.com/lyswhut/lx-music-mobile/releases)，其他渠道均为第三方转载发布，与本项目无关！
+目前本项目的原始发布地址只有 [**GitHub**](https://github.com/lyswhut/lx-music-mobile/releases)，其他渠道均为第三方转载发布，与本项目无关！
 
-为了提高使用门槛，本软件内的默认设置、UI 操作不以新手友好为目标，所以使用前建议先根据你的喜好浏览调整一遍软件设置，阅读一遍 [音乐播放列表机制](https://lyswhut.github.io/lx-music-doc/mobile/faq/playlist)。
+为了提高使用门槛，本软件内的默认设置、UI 操作不以新手友好为目标，所以使用前建议先根据你的喜好浏览调整一遍软件设置，阅读一遍[音乐播放列表机制](https://lyswhut.github.io/lx-music-doc/mobile/faq/playlist)。
 
 ### 数据同步服务
 
-从 v1.0.0 起，我们发布了一个独立版的 [数据同步服务](https://github.com/lyswhut/lx-music-sync-server#readme)，如果你有服务器，可以将其部署到服务器上作为私人多端同步服务使用，详情看该项目说明。
+从 v1.0.0 起，我们发布了一个独立的[数据同步服务](https://github.com/lyswhut/lx-music-sync-server#readme)。如果你有服务器，可以将其部署到服务器上作为私人多端同步服务使用，详情看该项目说明。
 
 ## 贡献代码
 
 本项目欢迎 PR，但为了 PR 能顺利合并，需要注意以下几点：
 
-- 对于添加新功能的 PR，建议在提交 PR 前先创建 issue 进行说明，以确认该功能是否确实需要；
+- 对于添加新功能的 PR，建议在提交 PR 前先创建 Issue 进行说明，以确认该功能是否确实需要；
 - 对于修复 bug 的 PR，请提供修复前后的说明及重现方式；
 - 对于其他类型的 PR，则适当附上说明。
 
 贡献代码步骤：
 
-1. 参照 [源码使用方法](https://lyswhut.github.io/lx-music-doc/mobile/use-source-code) 设置开发环境；
+1. 参照[源码使用方法](https://lyswhut.github.io/lx-music-doc/mobile/use-source-code)设置开发环境；
 2. 克隆本仓库代码并切换至 `dev` 分支进行开发；
 3. 提交 PR 至 `dev` 分支。
 
 <!--
 ## 用户界面
 
-<p><a href="https://github.com/lyswhut/lx-music-mobile"><img width="100%" src="https://github.com/lyswhut/lx-music-mobile/blob/master/doc/images/app.png" alt="lx-music mobile UI"></a></p> -->
+<p><img width="100%" src="https://github.com/lyswhut/lx-music-mobile/blob/master/doc/images/app.png" alt="lx-music mobile UI"></p> -->
 
 ## 项目协议
 
@@ -62,15 +67,15 @@
 
 ---
 
-*词语约定：本协议中的“本项目”指 LX Music（洛雪音乐助手）移动版项目；“使用者”指签署本协议的使用者；“官方音乐平台”指对本项目内置的包括酷我、酷狗、咪咕等音乐源的官方平台统称；“版权数据”指包括但不限于图像、音频、名字等在内的他人拥有所属版权的数据。*
+*词语约定：本协议中的“本项目”指 LX Music（洛雪音乐）移动版项目；“使用者”指签署本协议的使用者；“官方音乐平台”指对本项目内置的包括酷我、酷狗、咪咕等音乐源的官方平台统称；“版权数据”指包括但不限于图像、音频、名字等在内的他人拥有所属版权的数据。*
 
 ### 一、数据来源
 
 1.1 本项目的各官方平台在线数据来源原理是从其公开服务器中拉取数据（与未登录状态在官方平台 APP 获取的数据相同），经过对数据简单地筛选与合并后进行展示，因此本项目不对数据的合法性、准确性负责。
 
-1.2 本项目本身没有获取某个音频数据的能力，本项目使用的在线音频数据来源来自软件设置内“音乐来源”设置所选择的“源”返回的在线链接。例如播放某首歌，本项目所做的只是将希望播放的歌曲名字、歌手名字等信息传递给“源”，若“源”返回了一个链接，则本项目将认为这就是该歌曲的音频数据而进行使用，至于这是不是正确的音频数据本项目无法校验其准确性，所以使用本项目的过程中可能会出现希望播放的音频与实际播放的音频不对应或者无法播放的问题。
+1.2 本项目本身没有获取某个音频数据的能力，本项目使用的在线音频数据来源来自软件设置内“自定义源”设置所选择的“源”返回的在线链接。例如播放某首歌，本项目所做的只是将希望播放的歌曲名、艺术家等信息传递给“源”，若“源”返回了一个链接，则本项目将认为这就是该歌曲的音频数据而进行使用，至于这是不是正确的音频数据本项目无法校验其准确性，所以使用本项目的过程中可能会出现希望播放的音频与实际播放的音频不对应或者无法播放的问题。
 
-1.3 本项目的非官方平台数据（例如我的收藏列表）来自使用者本地系统或者使用者连接的同步服务，本项目不对这些数据的合法性、准确性负责。
+1.3 本项目的非官方平台数据（例如“我的列表”内列表）来自使用者本地系统或者使用者连接的同步服务，本项目不对这些数据的合法性、准确性负责。
 
 ### 二、版权数据
 
